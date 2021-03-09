@@ -3,10 +3,10 @@
 var autocomplete = require('autocomplete.js')
   , dawautil = require('dawa-util');
 
-var host= "https://dawa.aws.dk/"; 
+var host= "https://api.dataforsyningen.dk/"; 
 let miljø= getQueryVariable('m');
 if (miljø) {
-  host= host.replace('dawa',miljø); 
+  host= host.replace('api',miljø); 
 } 
 
 var kommuner= new Map();
@@ -43,7 +43,7 @@ function visjordstykke(map, valgt) {
       map.fitBounds(geojsonlayer.getBounds());
 
       var popup = L.popup()
-        .setContent("<a href='" + valgt.jordstykke.href.replace('dawa', 'info') + "'>" + valgt.tekst  + "</a>");
+        .setContent("<a href='" + valgt.jordstykke.href.replace('api', 'info') + "'>" + valgt.tekst  + "</a>");
       geojsonlayer.bindPopup(popup);  
       var marker= L.circleMarker(L.latLng(valgt.jordstykke.visueltcenter[1], valgt.jordstykke.visueltcenter[0]),{color: 'black', fill: true, fillcolor: 'black', fillOpacity: 1.0, radius: 1}).addTo(map);
 
@@ -52,12 +52,12 @@ function visjordstykke(map, valgt) {
       // var x= adgangsadresse.adgangspunkt.koordinater[1]
       //   , y= adgangsadresse.adgangspunkt.koordinater[0];
       // var marker= L.circleMarker(L.latLng(x, y), {color: 'red', fillColor: 'red', stroke: true, fillOpacity: 1.0, radius: 4, weight: 2, opacity: 1.0}).addTo(map);//defaultpointstyle);
-      // var popup= marker.bindPopup(L.popup().setContent("<a target='_blank' href='https://dawa.aws.dk/adgangsadresser?id="+adgangsadresse.id+"'>" + dawautil.formatAdgangsadresse(adgangsadresse) + "</a>"),{autoPan: true});
+      // var popup= marker.bindPopup(L.popup().setContent("<a target='_blank' href='https://api.dataforsyningen.dk/adgangsadresser?id="+adgangsadresse.id+"'>" + dawautil.formatAdgangsadresse(adgangsadresse) + "</a>"),{autoPan: true});
       // if (adgangsadresse.vejpunkt) {
       //   var vx= adgangsadresse.vejpunkt.koordinater[1]
       //     , vy= adgangsadresse.vejpunkt.koordinater[0];
       //   var vpmarker= L.circleMarker(L.latLng(vx, vy), {color: 'blue', fillColor: 'blue', stroke: true, fillOpacity: 1.0, radius: 4, weight: 2, opacity: 1.0}).addTo(map);//defaultpointstyle);
-      //   vpmarker.bindPopup(L.popup().setContent("<a target='_blank' href='https://dawa.aws.dk/adgangsadresser?id="+adgangsadresse.id+"'>" + dawautil.formatAdgangsadresse(adgangsadresse) + "</a>"),{autoPan: true});
+      //   vpmarker.bindPopup(L.popup().setContent("<a target='_blank' href='https://api.dataforsyningen.dk/adgangsadresser?id="+adgangsadresse.id+"'>" + dawautil.formatAdgangsadresse(adgangsadresse) + "</a>"),{autoPan: true});
       // }
       // map.setView(L.latLng(x, y),12);
       //popup.openPopup();
