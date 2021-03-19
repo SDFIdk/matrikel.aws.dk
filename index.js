@@ -56,6 +56,8 @@ app.get('/oisbygninger', function (req, res, next) {
   , pw= process.argv[3]
   , port= process.argv[4]; */
 
+var port = process.argv[4];
+
 if (!port) port= 3000;
 
 /* kf.getTicket(usr,pw).then(ticket => {
