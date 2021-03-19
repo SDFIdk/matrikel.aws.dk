@@ -60,6 +60,13 @@ var port = process.argv[4];
 
 if (!port) port= 3000;
 
+var server = app.listen(port, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('URL http://%s:%s', host, port);
+});
+
 /* kf.getTicket(usr,pw).then(ticket => {
   var server = app.listen(port, function () {
     var host = server.address().address;
