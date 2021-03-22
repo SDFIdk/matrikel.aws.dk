@@ -895,16 +895,6 @@ function main() {
   var center= kort.beregnCenter();
   map.setView(center,2);
 }
-/* function main() { 
-  fetch('/getticket').then(function (response) {
-    response.text().then(function (ticket) {      
-      map= kort.viskort('map', ticket, options);
-      dawalautocomplete.search().addTo(map);
-      var center= kort.beregnCenter();
-      map.setView(center,2);
-    });
-  });  
-} */
 
 main();
 
